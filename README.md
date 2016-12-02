@@ -6,7 +6,7 @@
 
 ## Requirements:
 * Use font [Montserrat@GoogleFonts](https://fonts.google.com/specimen/Montserrat)
-* Use provided ![svg icon](/images/upload-icon.svg)
+* Use provided [svg icon](/images/upload-icon.svg)
 * Support modern version of FF, Edge, Chrome
 * Task completed with JavaScript is a plus.
 * Fork this repository

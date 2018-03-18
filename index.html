@@ -2,9 +2,100 @@
 <html>
   <head>
     <meta charset='utf-8'>
-    <title></title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <title> Form Heading</title>
     <link href="css/style.css" rel="stylesheet" />
+    <script type="text/javascript">
+		    function getName (str){
+				    if (str.lastIndexOf('\\')){
+			   		var i = str.lastIndexOf('\\')+1;
+			    	}
+			   		else{
+			       	var i = str.lastIndexOf('/')+1;
+				   	}						
+				   	var filename = str.slice(i);			
+				   	var uploaded = document.getElementById("fileformlabel");
+				   	uploaded.innerHTML = filename;
+			}
+    </script>
   </head>
   <body>
+  <form id="form1">
+  	<div class="title-text">Form heading</div>
+  	<div class="display-line">
+  		<div class="input-border input-left">
+  			<label class="label-form">FIRST NAME</label> 
+  			<br>
+  			<input type="text" name="firstname" placeholder="Enter your first name" class="input-text" >
+  		</div>
+  		<div class="input-border input-right">
+  			<label class="label-form">LAST NAME</label> 
+  			<br>
+  			<input type="text" name="lastname" placeholder="Enter your last name" class="input-text"  >
+  		</div>
+  	</div>
+  	<br>
+  	<div class="display-line">
+  		<div class="input-border input-left">
+  			<label class="label-form">CONTACT EMAIL</label> 
+  			<br>
+  			<input type="email" name="email" placeholder="example@mail.com" class="input-text" required>
+  		</div>
+  		<div class="input-border input-right">
+  			<label class="label-form">CONTACT NUMBER</label> 
+  			<br>
+  			<input type="tel" name="number" placeholder="+1-555-555-0000" class="input-text" pattern="+[0-9]{12,16}" required>
+  		</div>
+  	</div>
+  	<div class="display-line">
+  	<div class="input-file">
+  		<label class="label-form">PHOTO</label> 
+  		<br>
+  		<div class="fileform">
+			<div id="fileformlabel">Choose file ...</div>
+			<div class="selectbutton">BROWSE FILE...</div>
+			<input type="file" name="upload" id="upload" accept=".jpg" onchange="getName(this.value);" />
+		</div>
+		<small class="help-text">We accept only <span class="file-jpg">JPG</span> format</small>
+  	</div>
+  		<div class="input-file right-file" style="">
+  		<label class="label-form">2 DOCUMENTS</label> 
+  		<br>
+  			<div class="fileform ">
+				<div id="fileformlabel">Choose file ...</div>
+				<div class="selectbutton">BROWSE FILE...</div>
+				<input type="file" name="upload" id="upload" accept=".doc, .pdf" onchange="getName(this.value);" />
+			</div>
+			<small class="help-text">We accept only <span class="file-pdf">PDF</span> and Word <span class="file-doc">DOC</span> format</small>
+  		</div>
+		
+  	</div>
+  	<div class="display-line forsmall">
+  	<div class="input-file">
+  		<label class="label-form">TRANSCRIPT</label> 
+  		<br>
+  		<div class="fileform">
+			<div id="fileformlabel">Choose file ...</div>
+			<div class="selectbutton">BROWSE FILE...</div>
+			<input type="file" name="upload" id="upload" onchange="getName(this.value);" />
+		</div>
+  	</div>
+  		<div class="input-file right-file" style="">
+  		<label class="label-form">RECOMMENDATION</label> 
+  		<br>
+  			<div class="fileform ">
+				<div id="fileformlabel">Choose file ...</div>
+				<div class="selectbutton">BROWSE FILE...</div>
+				<input type="file" name="upload" id="upload" onchange="getName(this.value);" />
+			</div>
+  		</div>
+  	</div>
+  	<button type="submit" form="form1" value="Submit" class="btn"><span  style="background: url(images/upload-icon.svg) no-repeat top left; background-size: contain;
+    cursor: pointer;
+    display: inline-block;
+    height: 15px;
+    width: 30px;"></span> SEND DATA</button>
+  </form>
+  	
   </body>
 </html>

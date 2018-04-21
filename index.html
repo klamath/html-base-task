@@ -1,10 +1,160 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <meta charset='utf-8'>
-    <title></title>
+    <meta charset="utf-8">
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1">
     <link href="css/style.css" rel="stylesheet" />
   </head>
   <body>
+    <form id="mainForm">
+      <h1>Form heading</h1>
+      <div class="form-body">
+        <div class="input-wrap"> <!-- firstname -->
+          <input 
+            class="styledInput" 
+            type="text" 
+            id="firstName" 
+            placeholder="Enter your first name" 
+            maxlength="20"
+            required 
+            >
+          <label for="firstName">first name</label>
+        </div>
+
+
+        <div class="input-wrap"> <!-- lastname -->
+          <input 
+            class="styledInput" 
+            type="text" 
+            name='lastname' 
+            id="lastName" 
+            placeholder="Enter your last name" 
+            required 
+            maxlength="30" 
+            >
+          <label for="lastName">last name</label>
+        </div>
+
+        <div class="input-wrap" > <!-- email -->
+          <input 
+            class="styledInput" 
+            type="email" 
+            id="mail" 
+            placeholder="ex.some@example.com" 
+            required
+            >
+          <label for="mail">contact email </label>
+        </div>
+        <!-- oninvalid="this.setCustomValidity('Please enter a valid email')" -->
+
+        <div class="input-wrap"> <!-- tel -->
+          <input 
+            class="styledInput" 
+            type="tel" 
+            id="phone" 
+            placeholder="+1-555-555-0000"
+            pattern="[\+]\d{1}[\-]\d{3}[\-]\d{3}[\-]\d{4}"
+            maxlength="16" 
+            required
+            >
+            <!-- onchange=(console.log(this.reportValidity())) -->
+          <label for="phone">contact phone</label>
+        </div>
+
+
+        <div class="file-input-wrap"> <!-- photo -->
+          <label for="photo">photo</label>
+          <div class="input-flie">
+            <p>Choose file ...</p>
+            <input 
+              type="file" 
+              id="photo"  
+              onchange="changeFileField(this)" 
+              accept=".jpg" 
+              required
+              />
+            <input
+              type="button" 
+              value="Browse files.." 
+              onclick="pickFile('photo')" 
+              title="File not picked"
+              />
+          </div>
+          <div class="tooltip-reqs">We accept only <span class="blue-light">JPG</span> format.</div>
+        </div>
+
+
+        <div class="file-input-wrap"> <!-- documents??? -->
+          <label>2 documents</label>
+          <div class="input-flie">
+            <p>Choose file ...</p>
+            <input 
+              type="file" 
+              id="documents" 
+              onchange="changeFileField(this)" 
+              accept=".pdf, .doc" 
+              required
+            />
+            <input 
+              type="button" 
+              value="Browse files.." 
+              onclick="pickFile('documents')" 
+              accept=".doc, .pdf" 
+              title="File not picked"
+              />
+          </div>
+          <div class="tooltip-reqs">We accept only <span class="red">PDF</span> and Word <span class="blue-dark">DOC</span> format.</div>
+        </div>
+
+
+        <div class="file-input-wrap"> <!-- script -->
+          <label>transcript</label>
+          <div class="input-flie">
+            <p>Choose file ...</p>
+            <input 
+              type="file" 
+              id="transcript" 
+              onchange="changeFileField(this)" 
+              required
+              />
+            <input 
+              type="button" 
+              value="Browse files.." 
+              onclick="pickFile('transcript')" 
+              title="File not picked"
+              />
+          </div>
+        </div>
+
+
+        <div class="file-input-wrap"> <!-- recomendation -->
+          <label>recomendation</label>
+          <div class="input-flie">
+            <p>Choose file ...</p>
+            <input 
+              type="file" 
+              id="recomend" 
+              onchange="changeFileField(this)"  
+              required 
+              />
+            <input 
+              type="button" 
+              value="Browse files.." 
+              onclick="pickFile('recomend')" 
+              title="File not picked"
+            />
+          </div>
+        </div>
+      </div>
+
+
+      <input type="submit" value="send data">
+    </form>
+
+
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.1.62/jquery.inputmask.bundle.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
   </body>
 </html>

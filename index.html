@@ -1,10 +1,84 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset='utf-8'>
-    <title></title>
-    <link href="css/style.css" rel="stylesheet" />
-  </head>
-  <body>
-  </body>
+    <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" href="css/style.css">
+	<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+	<script src="js/form.js"></script> 
+	<title>A html form</title>
+    </head>
+    <body><!--
+      --><div name="form" class="form-box" onsubmit="return validate();">
+	    <form>
+		
+		<h1> Form heading </h1>
+		
+		<div class="input-box">
+		    <p class="input-title"> FIRST NAME </p>
+		    <input class="input-text" type="text" name="first-name" placeholder="Enter your first name">
+		</div>
+		
+		<div class="input-box">
+		    <p class="input-title"> LAST NAME </p>
+		    <input class="input-text" type="text" name="last-name" placeholder="Enter your last name">
+		</div>
+		
+		<div class="input-box">
+		    <p class="input-title"> CONTACT EMAIL </p>
+		    <input id="email" class="input-text" type="text" name="email" placeholder="ex. some@example.com" onkeyup="validate_email()">
+		</div>
+		
+		<div class="input-box">
+		    <p class="input-title"> CONTACT PHONE </p>
+		    <input class="input-text" type="text" name="phone" placeholder="+1-555-555-0000" onkeyup="validate_phone()">
+		</div>
+		
+		<div class="file-box">
+		    <p> PHOTO </p>
+		    <div id="photo-label" class="input-left">Choose files...</div><!--
+		    --><div class="input-right">
+			<div class="upload-btn" onclick="trigger_download('photo')">BROWSE FILES...</div>
+			<input class="hidden" type="file" name="photo">
+		    </div>
+		    <p> We accept only <b> JPG </b> format. </p>
+		</div>
+
+		<div class="file-box">
+		    <p> 2 DOCUMENTS </p>
+		    <div id="docs-label" class="input-left">Choose files...</div><!--
+		    --><div class="input-right">
+			<div class="upload-btn" onclick="trigger_download('docs')">BROWSE FILES...</div>
+			<input class="hidden" type="file" name="docs" multiple>
+		    </div>
+		    <p> We accept only <b> PDF </b> and Word <b> DOC </b> format. </p>
+		</div>
+
+		<div class="file-box">
+		    <p> TRANSCRIPT </p>
+		    <div id="transcript-label" class="input-left">Choose files...</div><!--
+		    --><div class="input-right">
+			<div class="upload-btn" onclick="trigger_download('transcript')">BROWSE FILES...</div>
+			<input class="hidden" type="file" name="transcript">
+		    </div>
+		</div>
+
+		<div class="file-box">
+		    <p> RECOMMENDATION </p>
+		    <div id="recommendation-label" class="input-left">Choose files...</div><!--
+		    --><div class="input-right">
+			<div class="upload-btn" onclick="trigger_download('recommendation')">BROWSE FILES...</div>
+			<input class="hidden" type="file" name="recommendation">
+		    </div>
+		</div>
+
+		<div style="text-align:center;">
+		    <input type="submit" value="Submit">
+		</div>
+	    </form>
+	</div>
+	<script>
+	 document.addEventListener("DOMContentLoaded", attachListeners);
+	</script>
+    </body>
 </html>
